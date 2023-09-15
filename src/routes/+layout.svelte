@@ -8,8 +8,7 @@
     href="https://fonts.bunny.net/css?family=noto-sans:400"
     rel="stylesheet"
   />
-  <link href="https://fonts.bunny.net/css?family=cinzel:600" rel="stylesheet" />
+  <link href="https://fonts.bunny.net/css?family=cinzel:700" rel="stylesheet" />
 </svelte:head>
 
 <slot />
-
