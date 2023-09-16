@@ -1,18 +1,22 @@
-export const BASE_API_URL = `https://www.dota2.com/datafeed/`;
-
-export interface URLBuilderOptions {
-  params: Record<string, string>;
+export interface DotaApiOptions {
+  params?: Record<string, string>;
 }
 
-export const urlBuilder = (
+export const dotaApi = (
   endpoint: string,
-  options: URLBuilderOptions = {
+  options: DotaApiOptions = {
     params: {},
   },
 ) => {
   const urlParams = new URLSearchParams(options.params);
-  return `${BASE_API_URL}${endpoint}?${urlParams.toString() ?? ''}`;
+  return `https://www.dota2.com/datafeed/${endpoint}?${
+    urlParams.toString() ?? ''
+  }`;
 };
 
-export const imgUrlBuilder = () =>
-  `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png`;
+const cleanHeroName = (name: string) => name.replace('npc_dota_hero_', '');
+
+export const heroImgLandscape = (name: string) =>
+  `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${cleanHeroName(
+    name,
+  )}.png`;

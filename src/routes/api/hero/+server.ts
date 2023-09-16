@@ -1,10 +1,10 @@
-import { urlBuilder } from '$lib/api';
+import { dotaApi } from '$lib/api';
 import type { Hero } from '$lib/types';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET = (async ({ fetch }) => {
   const params = { language: 'english' };
-  const response = await fetch(urlBuilder('herolist', { params }));
+  const response = await fetch(dotaApi('herolist', { params }));
 
   const data = await response.json();
   const heroes = data.result.data.heroes as Array<Hero>;
