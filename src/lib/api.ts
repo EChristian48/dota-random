@@ -1,10 +1,13 @@
-export interface DotaApiOptions {
+// Common type
+export interface UrlBuilderOptions {
   params?: Record<string, string>;
 }
+type URLBuilder = (endpoint: string, options: UrlBuilderOptions) => string;
 
-export const dotaApi = (
+// Valve's dota API URL builder
+export const valveApi: URLBuilder = (
   endpoint: string,
-  options: DotaApiOptions = {
+  options: UrlBuilderOptions = {
     params: {},
   },
 ) => {
@@ -14,8 +17,8 @@ export const dotaApi = (
   }`;
 };
 
+// Valve hero image CDN
 const cleanHeroName = (name: string) => name.replace('npc_dota_hero_', '');
-
 export const heroImgLandscape = (name: string) =>
   `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${cleanHeroName(
     name,

@@ -12,10 +12,10 @@
 
 <main
   style:background-image="url({image})"
-  class="w-screen bg-cover bg-top bg-no-repeat min-h-screen"
+  class="min-h-screen w-screen bg-cover bg-top bg-no-repeat"
 >
   <section class="mx-auto max-w-4xl text-white">
-    <h1 class="font-serif text-6xl font-bold drop-shadow text-center">
+    <h1 class="text-center font-serif text-6xl font-bold drop-shadow">
       RANDOMIZE YOUR HERO
     </h1>
 
@@ -32,9 +32,20 @@
     </h2>
 
     <button
-      class="bg-gradient-to-b from-hippie-green-500 to-hippie-green-600 px-20 py-3 uppercase font-bold tracking-widest shadow-md shadow-blue-950 hover:brightness-110 transition-all"
+      class="highlight bg-gradient-to-b from-hippie-green-500 to-hippie-green-600 px-20 py-3 font-bold uppercase tracking-widest shadow-blue-950 transition-all hover:brightness-110 active:brightness-125"
       on:click={() => (randomHero = getRandomHero(data.heroes))}
-      ><span class="drop-shadow"> New Hero </span></button
+      ><span class="drop-shadow">New Hero</span></button
     >
   </section>
 </main>
+
+<style>
+  .highlight {
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+      0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow:
+      inset 1px 1px 0px 0px rgba(255, 255, 255, 0.4),
+      inset -1px -1px 0px 0px rgba(0, 0, 0, 0.4),
+      var(--tw-shadow);
+  }
+</style>
