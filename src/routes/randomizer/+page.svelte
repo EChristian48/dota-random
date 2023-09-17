@@ -12,10 +12,10 @@
 
 <main
   style:background-image="url({image})"
-  class="min-h-screen w-screen bg-cover bg-top bg-no-repeat"
+  class="w-screen bg-cover bg-top bg-no-repeat min-h-screen"
 >
   <section class="mx-auto max-w-4xl text-white">
-    <h1 class="text-center font-serif text-6xl font-bold drop-shadow">
+    <h1 class="font-serif text-6xl font-bold drop-shadow text-center">
       RANDOMIZE YOUR HERO
     </h1>
 
@@ -27,12 +27,14 @@
 
     <img src={heroImgLandscape(randomHero?.name ?? '')} alt="" />
 
-    <h2 class="text-center font-sans text-4xl font-semibold drop-shadow">
+    <h2 class="text-center font-sans text-4xl font-bold drop-shadow">
       {JSON.stringify(randomHero, null, 2)}
     </h2>
 
-    <button on:click={() => (randomHero = getRandomHero(data.heroes))}
-      >New Hero</button
+    <button
+      class="bg-gradient-to-b from-hippie-green-500 to-hippie-green-600 px-20 py-3 uppercase font-bold tracking-widest shadow-md shadow-blue-950 hover:brightness-110 transition-all"
+      on:click={() => (randomHero = getRandomHero(data.heroes))}
+      ><span class="drop-shadow"> New Hero </span></button
     >
   </section>
 </main>
